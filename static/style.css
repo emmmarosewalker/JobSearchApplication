@@ -1,0 +1,630 @@
+/******************************
+CSS RESET
+******************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/******************************
+CSS VARIABLES
+******************************/
+
+:root{
+    --deep-purple: #ae59e7;
+    --light-purple: #e6bbf7;
+    --mid-purple: #9e90e8;
+    --light-grey-bg: #f7f2f9;
+    --light-accent-grey: #a7aaaa;
+    --cyan: #81eeff;
+    --font-grey: #646666;
+
+    --radius-curve: 0.5em;
+    --purple-tint-shadow: 0px 0px 15px 1px rgba(197,191,199,0.5);
+    --purple-tint-shadow-extended: 3px 3px 15px 3px rgba(197,191,199,0.5);
+    --grey-tint-shadow: 0px 0px 15px 1px rgba(122,122,122,0.2);
+    --grey-tint-hover-shadow: 0px 3px 10px 1px rgba(122,122,122,0.2);
+    --smooth-transition: all 0.3s ease;
+}
+
+/******************************
+GENERAL STYLING
+******************************/
+body{
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-grey);
+    line-height: 1;
+    background-color: var(--light-grey-bg);
+}
+
+/* Text styling: */
+
+h2 {
+   color: var(--mid-purple);
+    font-weight: 700;
+    font-size: 1.3em;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    color: var(--mid-purple);
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+h5 {
+    color: var(--mid-purple);
+}
+
+ol, ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    transition: var(--smooth-transition);
+}
+a:hover{
+    color: rgba(100,100,100,0.5);
+}
+
+.footer{
+    background-color: var(--deep-purple);
+    padding-top: 2em;
+    padding-bottom: 2em;
+    box-shadow: var(--grey-tint-shadow);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    flex-wrap: wrap;
+}
+nav ul{
+    display: flex;
+}
+nav li{
+    padding-right: 2em;
+}
+.footer-nav{
+    justify-content: center;
+}
+
+.nav-logo a{
+    font-weight: 900;
+    color: #fff;
+}
+
+.bold-numbered-list {
+    font-weight: 900;
+}
+
+.bold-numbered-list span{
+    /*color: var(--font-grey);*/
+    font-weight: normal;
+}
+
+.bold-numbered-list li{
+    margin-bottom: 2em;
+}
+
+/******************************
+RE-USABLE ELEMENTS - BUTTONS, CARDS, ETC.
+******************************/
+
+.btn {
+    background-color: var(--light-purple);
+    padding: 0.8em 3em;
+    border-radius: var(--radius-curve);
+    display: inline-block;
+    margin: 1em 1em 1em 0;
+    color: #fff !important;
+    box-shadow: var(--grey-tint-shadow);
+    transition: var(--smooth-transition);
+}
+
+.btn:hover {
+    box-shadow: var(--grey-tint-hover-shadow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1.5px solid var(--light-purple);
+    background-color: #fff;
+    color: var(--light-purple) !important;
+}
+
+.logout-nav-btn {
+    display: inline-block;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    text-align: start;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: var(--radius-curve);
+    padding: 2em;
+    margin-bottom: 2em;
+    max-width: 35em;
+    box-shadow: var(--purple-tint-shadow);
+    transition: var(--smooth-transition);
+}
+
+.card .btn{
+    margin-bottom: 0;
+}
+
+.card h4 {
+    padding-bottom: 1em;
+}
+
+.card p {
+    line-height: 1.6em;
+}
+
+.card h3{
+    padding-bottom: 0.3em;
+}
+
+.card h4 {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--light-accent-grey);
+}
+
+.card p{
+    color: #777;
+}
+
+.card a{
+    color: #fff;
+}
+
+.card:hover{
+    box-shadow: var(--purple-tint-shadow-extended);
+    transform: translate(-2px,-2px);
+}
+
+.card ul li{
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-left: 2em;
+}
+
+.card ol li{
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 2em;
+}
+
+.card li, .card ul{
+    line-height: 1.5em;
+    color: #777;
+}
+
+.wide-card{
+    max-width: 60em;
+}
+
+.wide-card a{
+    color: var(--mid-purple);
+}
+
+.wide-card p, .wide-card ul, .wide-card ol{
+    margin-bottom: 1em;
+}
+
+/******************************
+UTILITY CLASSES
+******************************/
+.cyan{
+    color: var(--cyan) !important;
+}
+
+a.cyan:hover{
+    color: rgba(129,238,255,0.8) !important;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.small{
+    font-size: 0.9em;
+}
+
+.light-text{
+    color: rgba(250,250,250,0.6);
+}
+
+.italics{
+    font-style: italic;
+}
+
+.text-right{
+    text-align: right;
+}
+.paragraph-font-color{
+    color: var(--font-grey) !important;
+}
+
+.mb-1{
+    margin-bottom: 1em;
+}
+
+.mb-2{
+    margin-bottom: 2em;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+.mt-2 {
+    margin-top: 2em;
+}
+
+.pb-2 {
+    padding-bottom: 2em;
+}
+
+/******************************
+INDEX STYLING - General
+******************************/
+
+nav a, footer a{
+    color: #f7f5f7;
+}
+
+nav a:hover, footer a:hover{
+    color: rgba(255,255, 255,0.6);
+}
+
+.banner-intro h1{
+    font-size: 4em;
+    font-weight: 900;
+    color: #fff;
+}
+
+.banner-intro{
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.illustration{
+    padding-top: 2em;
+}
+
+.banner-intro p{
+    color: #fff;
+    max-width: 25em;
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+.banner{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#81f0e9+0,b24ce7+100 */
+    background: rgb(129,240,233); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(129,240,233,1) 0%, rgba(178,76,231,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(129,240,233,1) 0%,rgba(178,76,231,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(129,240,233,1) 0%,rgba(178,76,231,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81f0e9', endColorstr='#b24ce7',GradientType=1 ); /* IE6-9 */
+
+    background-size: 150% 150%;
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+
+    margin-bottom: 2em;
+
+    box-shadow: var(--grey-tint-shadow);
+}
+    /* Animate Background */
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.main-area, .footer, .banner{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.main-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration img{
+    max-width: 15em;
+}
+
+/**********************
+COG SVG ANIMATIONS and STYLING
+**********************/
+.cog-image{
+    width: 60%;
+    height: auto;
+    text-align: center;
+}
+
+.spinning-cog1 {
+    -webkit-animation: rotating-clockwise 7s linear infinite;
+    -moz-animation: rotating-clockwise 7s linear infinite;
+    -ms-animation: rotating-clockwise 7s linear infinite;
+    -o-animation: rotating-clockwise 7s linear infinite;
+    animation: rotating-clockwise 7s linear infinite;
+    transform-origin: 37px 37px;
+}
+
+.spinning-cog2 {
+    -webkit-animation: rotating-anticlockwise 10s linear infinite;
+    -moz-animation: rotating-anticlockwise 10s linear infinite;
+    -ms-animation: rotating-anticlockwise 10s linear infinite;
+    -o-animation: rotating-anticlockwise 10s linear infinite;
+    animation: rotating-anticlockwise 10s linear infinite;
+    transform-origin: 162px 93px;
+}
+
+
+@-webkit-keyframes rotating-clockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating-clockwise {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+@-webkit-keyframes rotating-anticlockwise /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+@keyframes rotating-anticlockwise {
+    from {
+
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+
+    }
+    to {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+
+/******************************
+PAGE STYLING (About, etc.) - General
+******************************/
+.page-h1{
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 2em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+    max-width: 10em;
+}
+
+main.page-content{
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.card-section:first-of-type{
+    padding-bottom: 3em;
+}
+
+.card-section{
+    padding: 1em;
+}
+.card-section img{
+    max-width: 200px;
+}
+/******************
+Form styling
+******************/
+.login-card{
+    width: 40%;
+    max-width: 20em !important;
+    padding: 3em;
+}
+.input-field{
+    height: 3em;
+    width: 100%;
+    background-color: var(--light-grey-bg);
+    border: 1px solid var(--light-grey-bg);
+    border-radius: 0.8em;
+    margin-top: 0.6em;
+}
+.banner-search {
+    margin: 0;
+    padding-left: 1em;
+}
+.submit-btn {
+    cursor: pointer;
+}
+.banner.login-banner{
+    padding-top: 3em;
+    padding-bottom: 3em;
+    margin-bottom: 0;
+}
+
+.m-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea {
+    resize: vertical;
+    max-width: 100%;
+    min-height: 8em;
+}
+#postform {
+    margin-bottom: 0;
+    background-color: var(--light-grey-bg);
+}
+
+#postform .input-field {
+    background-color: #fff;
+}
+#logout-form h2{
+    margin-bottom: 0;
+}
+
+/******************************
+INDEX STYLING - Layout
+******************************/
+
+/******************************
+        INDEX STYLING - Basic layout - responsive and for browsers not supporting grid
+******************************/
+.banner > * , .footer > * , .index .main-area{
+    max-width: 50em;
+    margin: 0 auto;
+}
+
+/******************************
+        STYLING - Grid layout for modern browsers and responsive design on larger screens
+******************************/
+
+/* Check for CSS Grid support: */
+@supports (grid-area: auto) {
+    /* Enable grid for viewports 700px and wider: */
+    @media screen and (min-width: 700px) {
+        /******************************
+        INDEX GRID AND LAYOUT
+        ******************************/
+        .banner > * , .footer > * , .index .main-area{
+            max-width: 60em;
+        }
+        .page-h1{
+            max-width: 20em;
+        }
+        .banner-intro{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "intro illustration";
+        }
+        .banner-text{
+            grid-area: intro;
+            padding-top: 3em;
+        }
+        .illustration{
+            grid-area: illustration;
+            padding-top: 0;
+            text-align: center;
+        }
+        .illustration img{
+            max-width: 18em;
+        }
+
+        .card-grid{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        }
+
+        #about-card-illustration{
+            margin-bottom: 7em;
+        }
+
+        #about-card{
+            padding: 4em;
+        }
+
+        /******************************
+        UTILITIES
+        ******************************/
+        .flex{
+            display: flex;
+        }
+        /******************************
+        RE-USABLE ELEMENTS' RESPONSIVE FEATURES ON LARGER DEVICES
+        ******************************/
+        .card-section:first-of-type{
+            padding-right: 2em;
+            padding-bottom: 0;
+        }
+        .card-section:last-of-type{
+            padding-left: 2em;
+        }
+    }
+
+}
