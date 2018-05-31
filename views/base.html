@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-US">
-% navs = [('/', 'Home'), ('/about', 'About'), ('/#content', 'View Jobs'), ('/#postform', 'Post Jobs')]
-% footernavs = [('/', 'Home'), ('/#postform', 'Post Jobs'), ('#', 'Privacy Policy'), ('#', 'Terms & Conditions')]
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{title if defined ('title') else "Jobs."}}</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700,900" rel="stylesheet">
-        <link rel="stylesheet" href="/static/style.css" type="text/css" media="all">
-		<link rel="icon" type="image/png" href="/static/favicon.png">
-    </head>
+% navs = [('/', 'Home'), ('/about', 'About'), ('/#content', 'View Jobs'), ('/#postform', 'Post Jobs')] % footernavs = [('/', 'Home'), ('/#postform', 'Post Jobs'), ('#', 'Privacy Policy'), ('#', 'Terms & Conditions')]
 
-    <body class="index">
-        <header class="banner">
-            <nav class="main-nav" role="navigation">
-                <ul>
-                    <li class="nav-logo"><a href="/">Jobs.</a></li>
-                    % for nav in navs:
-                    <li><a href="{{nav[0]}}">{{nav[1]}}</a></li>
-                    % end
-                </ul>
-                <ul>
-					%if login_name != None:
-					<li class="cyan">Welcome, {{login_name}}!</li>
-					<li>
-						<form id="logoutform" method="POST" action="/logout">
-							<input type="submit" value="Logout" name="logout" class="cyan logout-nav-btn">
-						</form>
-					</li>
-                    %end
-					%if login_name == None:
-                    <li><a class="cyan" href="/#loginform">Login</a></li>
-					%end
-                </ul>
-            </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title if defined ('title') else "Jobs."}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+</head>
+
+<body class="index">
+    <header class="banner">
+        <nav class="main-nav" role="navigation">
+            <ul>
+                <li class="nav-logo"><a href="/">Jobs.</a></li>
+                % for nav in navs:
+                <li><a href="{{nav[0]}}">{{nav[1]}}</a></li>
+                % end
+            </ul>
+            <ul>
+                %if login_name != None:
+                <li class="cyan">Welcome, {{login_name}}!</li>
+                <li>
+                    <form id="logoutform" method="POST" action="/logout">
+                        <input type="submit" value="Logout" name="logout" class="cyan logout-nav-btn">
+                    </form>
+                </li>
+                %end %if login_name == None:
+                <li><a class="cyan" href="/#loginform">Login</a></li>
+                %end
+            </ul>
+        </nav>
 
         {{!base}}
 
@@ -41,13 +40,15 @@
             <nav class="footer-nav">
                 <ul>
                     % for fnav in footernavs:
-                    <li><a href="{{fnav[0]}}">{{fnav[1]}}</a></li>
+                    <li>
+                        <a href="{{fnav[0]}}">{{fnav[1]}}</a>
+                    </li>
                     % end
                 </ul>
             </nav>
             <p class="text-center small light-text italics">&copy; Jobs. All Rights Reserved.</p>
         </footer>
 
-    </body>
+</body>
 
 </html>
