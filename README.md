@@ -1,4 +1,4 @@
-(View Live Site)[https://emmawalkerjobsversion1.herokuapp.com/]
+[View Live Site](https://emmawalkerjobsversion1.herokuapp.com/)
 
 # JobSearchApplication
 This application is modelled around other job-search web apps such as seek. 
